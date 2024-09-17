@@ -1,0 +1,40 @@
+@import url(./assets/fonts/geist/main.css);
+
+body {
+  font-family: Geist;
+}
+
+body.kcBodyClass {
+    background-image: url(./assets/RG-Background-1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.card-pf {
+    border-top: 0;
+    border-radius: 6px;
+    padding: 20px;
+}
+
+#kc-info-wrapper {
+    background-color: unset;
+}
+
+#kc-form-wrapper {
+    margin-top: 30px;
+}
+
+.btn-lg {
+    border-radius: 5px;
+    padding: 10px
+}
+
+.pf-c-button.pf-m-primary {
+    background-color: #09173C;
+}
+
+.pf-c-button:disabled {
+    color: #6a6e73;
+    background-color: #d2d2d2;
+}

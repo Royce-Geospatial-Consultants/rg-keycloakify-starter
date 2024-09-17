@@ -9,14 +9,14 @@ This starter is based on Vite. There is also [a Webpack based starter](https://g
 # Quick start
 
 ```bash
-git clone https://github.com/keycloakify/keycloakify-starter
-cd keycloakify-starter
+git clone https://github.com/Royce-Geospatial-Consultants/rg-keycloakify-starter.git
+cd rg-keycloakify-starter
 yarn install # Or use an other package manager, just be sure to delete the yarn.lock if you use another package manager.
 ```
 
 # Testing the theme locally
 
-[Documentation](https://docs.keycloakify.dev/v/v10/testing-your-theme)
+[Documentation](https://docs.keycloakify.dev/v/v10/testing-your-theme) (Recommended: Running in a Keycloak Docker Container)
 
 # How to customize the theme
 
@@ -38,13 +38,30 @@ npm run build-keycloak-theme
 Note that by default Keycloakify generates multiple .jar files for different versions of Keycloak.  
 You can customize this behavior, see documentation [here](https://docs.keycloakify.dev/targeting-specific-keycloak-versions).
 
-# Initializing the account theme
+# Deploying the theme
+
+[Documentation](https://docs.keycloakify.dev/importing-your-theme-in-keycloak) (Use the Bare Metal option)
+
+Once you have the .jar file for the correct version of Keycloak, drop it into the currently running GCP Keycloak VM instance you want to apply the theme to.
+
+-   Make sure you have permissions to SSH into the VM and are able to use sudo
+-   Upload the .jar, then move it into `/mnt/{keycloak-directory}/providers`
+-   From the keycloak directory:
+    -   `sudo bin/kc.sh build`
+    -   `sudo systemctl restart keycloak`
+-   In a web browser, head to the Keycloak domain you applied this theme to
+-   Log in, select "Realm Settings" and head to "Themes"
+-   Under "Login theme" you should find the corresponding theme name specified in `vite.config.ts`
+-   Select it to apply the theme, then log out to see the theme in effect on the Login page
+
+
+# Initializing the account theme (Optional)
 
 ```bash
 npx keycloakify initialize-account-theme
 ```
 
-# Initializing the email theme
+# Initializing the email theme (Optional)
 
 ```bash
 npx keycloakify initialize-email-theme

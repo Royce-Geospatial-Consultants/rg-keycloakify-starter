@@ -7,6 +7,7 @@ export default defineConfig({
     plugins: [
         react(),
         keycloakify({
+            themeName: "roycegeo-keycloakify-theme",
             accountThemeImplementation: "none"
         })
     ]
