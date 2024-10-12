@@ -4,17 +4,79 @@ body {
   font-family: Geist;
 }
 
-body.kcBodyClass {
-    background-image: url(./assets/RG-Background-1.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+video {
+    object-fit: fill;
 }
 
-.card-pf {
+a {
+    color: #bee84c;
+}
+
+input[type='checkbox'] {
+    accent-color: #bee84c;
+}
+
+.kcFormGroupClass {
+    input, select {
+        border-radius: 5px;
+        background-color: rgba(43, 43, 43);
+        border-color: rgba(43, 43, 43);
+        color: white;
+    }
+    input:focus, select:focus {
+        outline: none !important;
+        border: 1px solid #bee84c;
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+        -webkit-text-fill-color: white;
+        caret-color: white;
+        -webkit-box-shadow: 0 0 0px 1000px rgb(20, 20, 23) inset;
+        transition: background-color 5000s ease-in-out 0s;
+    }
+}
+
+.kcInputGroup {
+    border-radius: 5px;
+    background-color: rgba(43, 43, 43);
+    overflow: hidden;
+    button {
+        background: rgba(43, 43, 43) !important;
+    }
+    i {
+        color: white;
+    }
+    .pf-c-button::after {
+        border: none;
+    }
+}
+
+.kcFormCardClass {
     border-top: 0;
     border-radius: 6px;
     padding: 20px;
+}
+
+.kcFormCardClassDark {
+    background-color: rgba(28, 28, 28, 0.97);
+    color: white;
+}
+
+#video-background {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
 }
 
 #kc-info-wrapper {
@@ -31,10 +93,15 @@ body.kcBodyClass {
 }
 
 .pf-c-button.pf-m-primary {
-    background-color: #09173C;
+    background-color: #bee84c;
+    color: black;
 }
 
 .pf-c-button:disabled {
     color: #6a6e73;
     background-color: #d2d2d2;
+}
+
+.required {
+    color: #FC5902;
 }
