@@ -58,7 +58,7 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
             <div className={kcClsx("kcLoginClass")}>
                 <div id="kc-header" className={kcClsx("kcHeaderClass")}>
                     <div id="kc-header-wrapper" className={kcClsx("kcHeaderWrapperClass")}>
-                        <img src={logo}/>
+                        <img style={{ position: 'absolute', right: 0, top: 0, paddingRight: '20px', paddingTop: '20px' }} src={logo}/>
                     </div>
                 </div>
 
