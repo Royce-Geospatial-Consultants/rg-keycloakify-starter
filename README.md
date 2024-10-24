@@ -24,8 +24,8 @@ yarn install # Or use an other package manager, just be sure to delete the yarn.
 
 # Building the theme
 
-You need to have [Maven](https://maven.apache.org/) installed to build the theme (Maven >= 3.1.1, Java >= 7).  
-The `mvn` command must be in the $PATH.  
+You need to have [Maven](https://maven.apache.org/) installed to build the theme (Maven >= 3.1.1, Java >= 7).
+The `mvn` command must be in the $PATH.
 
 -   On macOS: `brew install maven`
 -   On Debian/Ubuntu: `sudo apt-get install maven`
@@ -35,7 +35,7 @@ The `mvn` command must be in the $PATH.
 npm run build-keycloak-theme
 ```
 
-Note that by default Keycloakify generates multiple .jar files for different versions of Keycloak.  
+Note that by default Keycloakify generates multiple .jar files for different versions of Keycloak.
 You can customize this behavior, see documentation [here](https://docs.keycloakify.dev/targeting-specific-keycloak-versions).
 
 # Deploying the theme
@@ -45,10 +45,13 @@ You can customize this behavior, see documentation [here](https://docs.keycloaki
 Once you have the .jar file for the correct version of Keycloak, drop it into the currently running GCP Keycloak VM instance you want to apply the theme to.
 
 -   Make sure you have permissions to SSH into the VM and are able to use sudo
--   Upload the .jar, then move it into `/mnt/{keycloak-directory}/providers`
--   From the keycloak directory:
+-   Upload the .jar, then move it to the keycloak directory:
+    -   `sudo mv {.jar} /mnt/keycloak/keycloak-{version}/providers`
+-   From the `/mnt/keycloak/keycloak-{version}` directory:
     -   `sudo bin/kc.sh build`
     -   `sudo systemctl restart keycloak`
+-   To check status of keycloak:
+    -   `sudo systemctl status keycloak`
 -   In a web browser, head to the Keycloak domain you applied this theme to
 -   Log in, select "Realm Settings" and head to "Themes"
 -   Under "Login theme" you should find the corresponding theme name specified in `vite.config.ts`
