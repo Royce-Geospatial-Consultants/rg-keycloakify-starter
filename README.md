@@ -57,7 +57,6 @@ Once you have the .jar file for the correct version of Keycloak, drop it into th
 -   Under "Login theme" you should find the corresponding theme name specified in `vite.config.ts`
 -   Select it to apply the theme, then log out to see the theme in effect on the Login page
 
-
 # Initializing the account theme (Optional)
 
 ```bash
@@ -78,3 +77,14 @@ To release a new version **just update the `package.json` version and push**.
 
 To enable the workflow go to your fork of this repository on GitHub then navigate to:
 `Settings` > `Actions` > `Workflow permissions`, select `Read and write permissions`.
+
+# Troubleshooting Keycloakify Version Upgrades
+
+When you fetch from remote upstream to sync with the latest changes of the keycloakify-starter branch, troubleshooting
+`src/login/Template.tsx` can get tricky if an error occurs with this file. Because this page is self-ejected and overwritten to customize the theme,
+one way to troubleshoot is to:
+-   Rename the existing file to `Template-1.tsx`
+-   Run `npx keycloakify eject-page` and select `Template.tsx` to get a fresh template file
+-   See if the app will compile with the fresh template.
+-   Compare diffs with `Template-1.tsx` until you have a working `Template.tsx` with the correct theme styling you want
+-   Remove `Template-1.tsx`
