@@ -7,7 +7,7 @@ import { useSetClassName } from "keycloakify/tools/useSetClassName";
 import { useInitialize } from "keycloakify/login/Template.useInitialize";
 import type { I18n } from "./i18n";
 import type { KcContext } from "./KcContext";
-import logo from "./assets/Roycegeo-Logo-@2x.svg";
+import logo from "./assets/grvty_logo.svg";
 import video from "./assets/background-video.mp4";
 
 export default function Template(props: TemplateProps<KcContext, I18n>) {
@@ -66,10 +66,9 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
                         <img
                             style={{
                                 position: "absolute",
+                                height: "80px",
                                 right: 0,
-                                top: 0,
-                                paddingRight: "20px",
-                                paddingTop: "20px"
+                                top: 0
                             }}
                             src={logo}
                         />

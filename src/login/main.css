@@ -9,11 +9,11 @@ video {
 }
 
 a {
-    color: #bee84c;
+    color: var(--grvty-green);
 }
 
 input[type="checkbox"] {
-    accent-color: #bee84c;
+    accent-color: var(--grvty-green);
 }
 
 .kcFormGroupClass {
@@ -27,7 +27,7 @@ input[type="checkbox"] {
     input:focus,
     select:focus {
         outline: none !important;
-        border: 1px solid #bee84c;
+        border: 1px solid var(--grvty-green);
     }
 
     input:-webkit-autofill,
@@ -95,7 +95,7 @@ input[type="checkbox"] {
 }
 
 .pf-c-button.pf-m-primary {
-    background-color: #bee84c;
+    background-color: var(--grvty-green);
     color: black;
 }
 
@@ -105,5 +105,13 @@ input[type="checkbox"] {
 }
 
 .required {
-    color: #fc5902;
+    color: var(--grvty-orange);
+}
+
+:root {
+    --grvty-orange: #fa5d00;
+    --grvty-green: #e5fa53;
+    --grvty-white: #e1e8f6;
+    --grvty-teal: #0092be;
+    --grvty-blue: #0a4052;
 }
