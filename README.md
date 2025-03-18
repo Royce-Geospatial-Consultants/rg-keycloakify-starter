@@ -31,7 +31,11 @@ The `mvn` command must be in the $PATH.
 -   On Debian/Ubuntu: `sudo apt-get install maven`
 -   On Windows: `choco install openjdk` and `choco install maven` (Or download from [here](https://maven.apache.org/download.cgi))
 
+#### !! IMPORTANT : You must delete ./dist and ./dist_keycloak directories each time before you build!!!
+
 ```bash
+rm -rf dist
+rm -rf dist_keycloak
 npm run build-keycloak-theme
 ```
 
@@ -78,7 +82,9 @@ To release a new version **just update the `package.json` version and push**.
 To enable the workflow go to your fork of this repository on GitHub then navigate to:
 `Settings` > `Actions` > `Workflow permissions`, select `Read and write permissions`.
 
-# Troubleshooting Keycloakify Version Upgrades
+# Troubleshooting
+
+## Keycloakify Version Upgrades
 
 When you fetch from remote upstream to sync with the latest changes of the keycloakify-starter branch, troubleshooting
 `src/login/Template.tsx` can get tricky if an error occurs with this file. Because this page is self-ejected and overwritten to customize the theme,
@@ -88,3 +94,12 @@ one way to troubleshoot is to:
 -   See if the app will compile with the fresh template.
 -   Compare diffs with `Template-1.tsx` until you have a working `Template.tsx` with the correct theme styling you want
 -   Remove `Template-1.tsx`
+
+## Unable to change theme in admin console
+
+If you are getting a 403 forbidden error when trying to select a new theme from within the Realm Settings -> Themes dropdowns, try deleting the themeing cache from within the keycloak instace and restarting:
+-   From the `/mnt/keycloak/keycloak-{version}` directory:
+    -   `sudo rm -rf data/tmp/kc-gzip-cache`
+    -   `sudo bin/kc.sh build`
+    -   `sudo systemctl restart keycloak`
+-   Log out and log back in to the admin console
